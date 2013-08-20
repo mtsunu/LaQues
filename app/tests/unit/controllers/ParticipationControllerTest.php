@@ -1,6 +1,6 @@
 <?php
 
-use Mockery;
+use Mockery as M;
 use Woodling\Woodling;
 
 class ParticipationControllerTest extends TestCase
@@ -16,7 +16,7 @@ class ParticipationControllerTest extends TestCase
 
     protected function mock($class)
     {
-        $mock = Mockery::mock($class);
+        $mock = M::mock($class);
 
         $this->app->instance($class, $mock);
 
@@ -36,7 +36,7 @@ class ParticipationControllerTest extends TestCase
 
         $this->assertResponseOk();
         $this->assertViewHas('survey');
-        $this->assertInstanceOf('Survey', $response->original->getData()['survey']);
+        $this->assertInstanceOf('Laques\Database\Eloquent\Survey', $response->original->getData()['survey']);
         $this->assertSame($survey, $response->original->getData()['survey']);
     }
 
@@ -47,7 +47,7 @@ class ParticipationControllerTest extends TestCase
     {
         $this->mock->shouldReceive('find')
                     ->once()
-                    ->with(Mockery::any())
+                    ->with(M::any())
                     ->andReturn(NULL);
 
         $this->call('get', 'survey/1/participate');

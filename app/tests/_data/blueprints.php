@@ -2,7 +2,7 @@
 
 use Woodling\Woodling;
 
-Woodling::seed('Survey', function ($blueprint) {
+Woodling::seed('Survey', ['class' => 'LaQues\Database\Eloquent\Survey', 'do' => function ($blueprint) {
     $blueprint->sequence('id', function($i) {
         return $i;
     });
@@ -29,13 +29,13 @@ Woodling::seed('Survey', function ($blueprint) {
         ]);
         return $q;
     };
-});
+}]);
 
-Woodling::seed('Question', function($b) {
+Woodling::seed('Question', ['class' => 'LaQues\Database\Eloquent\Question', 'do' => function($b) {
     $b->label = "tes";
     $b->type = "yesno";
-});
+}]);
 
-Woodling::seed('Answer', function($b) {
+Woodling::seed('Answer', ['class' => 'LaQues\Database\Eloquent\Answer', 'do' => function($b) {
     $b->label = "dummy";
-});
+}]);

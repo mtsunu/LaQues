@@ -35,7 +35,7 @@ $survey = $I->haveASurvey(array(
         )
     )
 ));
-
+//die(var_dump($survey));
 // When
 $I->amOnPage('survey/'.$survey->id.'/participate');
 
