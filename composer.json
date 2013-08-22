@@ -3,7 +3,8 @@
 	"description": "Questionare Manager",
 	"keywords": ["framework", "laravel"],
 	"require": {
-		"laravel/framework": "4.0.*"
+		"laravel/framework": "4.0.*",
+		"zizaco/confide": "1.0.x"
 	},
 	"require-dev": {
 		"codeception/codeception": "@stable",
