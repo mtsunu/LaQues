@@ -32,4 +32,11 @@ class MemberSteps extends \TestGuy
 		$I->fillFIeld(LoginPage::$passwordField, $user['password']);
 		$I->click(LoginPage::$loginButton);
 	}
+
+	public function shouldBeOnPage($page)
+	{
+		$I = $this;
+
+		$I->seeCurrentUrlEquals($page);
+	}
 }

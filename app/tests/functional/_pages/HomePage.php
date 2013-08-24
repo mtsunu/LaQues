@@ -3,7 +3,7 @@
 class HomePage
 {
     // include url of current page
-    const URL = '/';
+    const URL = '/admin';
 
     /**
      * Declare UI map for this page here. CSS or XPath allowed.
