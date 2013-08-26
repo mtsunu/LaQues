@@ -17,7 +17,7 @@ $I->amOnPage(LoginPage::URL);
 $I->shouldSeeLoginForm();
 
 //When
-$I->login($user);
+$I->login($user, FALSE);
 
 //Then
 $I->shouldBeOnPage(HomePage::URL);

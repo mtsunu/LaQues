@@ -20,7 +20,7 @@ class UserController extends \BaseController
         } else {
         	return \Redirect::to('login')
         					->withInput(\Input::except('password'))
-        					->withErrors('Invalid Credential');
+        					->withErrors('Invalid Username/Password');
         }
 	}
 }

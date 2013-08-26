@@ -29,9 +29,13 @@ class MemberSteps extends \TestGuy
 		$I->seeElement(LoginPage::$loginButton);
 	}
 
-	public function login($user)
+	public function login($user, $goToLoginPage = TRUE)
 	{
 		$I = $this;
+
+		if($goToLoginPage) {
+			$I->amOnPage(LoginPage::URL);
+		}
 
 		$I->fillFIeld(LoginPage::$usernameField, $user['username']);
 		$I->fillFIeld(LoginPage::$passwordField, $user['password']);
@@ -43,5 +47,12 @@ class MemberSteps extends \TestGuy
 		$I = $this;
 
 		$I->seeCurrentUrlEquals($page);
+	}
+
+	public function shouldSeeErrorMessage($message)
+	{
+		$I = $this;
+		
+		$I->see($message, '.alert-danger');
 	}
 }
