@@ -15,3 +15,5 @@ Route::get('survey/{id}/participate', 'LaQues\Controllers\ParticipationControlle
 
 Route::get('login', 'LaQues\Controllers\UserController@login');
 Route::post('doLogin', 'LaQues\Controllers\UserController@doLogin');
+
+Route::get('admin', function() { return 'tes'; });

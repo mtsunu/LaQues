@@ -5,7 +5,8 @@ $I->wantTo('login to the application');
 //Given
 $user = [
 	'username' => 'bagong',
-	'password' => 'qwerty'
+	'password' => 'qwerty',
+	'email'	   => 'bagong@qwerty.com'
 ];
 $I->haveAUser($user);
 

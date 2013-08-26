@@ -21,4 +21,18 @@ class UserControllerTest extends TestCase
 
 		$this->assertRedirectedTo('/admin');
 	}
+
+	public function testLoginFailed()
+	{
+		$input = ['username' => 'paijo', 'password' => 'rahasia'];
+		Confide::shouldReceive('logAttempt')
+				->once()
+				->with($input)
+				->andReturn(FALSE);
+
+		$this->call('POST', 'doLogin', $input);
+
+		$this->assertRedirectedTo('login');
+		$this->assertSessionHasErrors();
+	}
 } 

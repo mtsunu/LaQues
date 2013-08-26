@@ -14,7 +14,7 @@ class LoginPage
     public static $formElement = '#loginForm';
     public static $usernameField = '#loginForm input[name=username]';
     public static $passwordField = '#loginForm input[name=password]';
-    public static $loginButton = '#loginForm #loginButton';
+    public static $loginButton = '#loginForm input[type=submit]';
 
     /**
      * Basic route example for your current URL

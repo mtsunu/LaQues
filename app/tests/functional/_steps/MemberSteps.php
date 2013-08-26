@@ -11,7 +11,12 @@ class MemberSteps extends \TestGuy
 		$u = new User;
 		$u->username = $user['username'];
 		$u->password = $user['password'];
+		$u->password_confirmation = $user['password'];
+		$u->email = $user['email'];
 		$u->save();
+
+		$I = $this;
+		$I->seeInDatabase('users', ['username' => $user['username']]);
 	}
 
 	public function shouldSeeLoginForm()
