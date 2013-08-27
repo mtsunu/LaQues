@@ -1,5 +1,7 @@
 <?php
 
+use Mockery as m;
+
 class UserControllerTest extends TestCase
 {
 	public function testShouldRouteToLoginPage()
@@ -14,7 +16,7 @@ class UserControllerTest extends TestCase
 		$input = ['username' => 'paijo', 'password' => 'rahasia'];
 		Confide::shouldReceive('logAttempt')
 				->once()
-				->with($input)
+				->with(m::subset($input))
 				->andReturn(TRUE);
 
 		$this->call('POST', 'doLogin', $input);
@@ -27,7 +29,7 @@ class UserControllerTest extends TestCase
 		$input = ['username' => 'paijo', 'password' => 'rahasia'];
 		Confide::shouldReceive('logAttempt')
 				->once()
-				->with($input)
+				->with(m::subset($input))
 				->andReturn(FALSE);
 
 		$this->call('POST', 'doLogin', $input);
